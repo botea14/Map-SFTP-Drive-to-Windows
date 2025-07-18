@@ -5,22 +5,22 @@
 ### Before you can map any drives, you need to install two essential pieces of software.
 
 ## Step 1: Install WinFsp
-### WinFsp (Windows File System Proxy) is a framework that allows you to create user-mode file systems. SSHFS-Win depends on it to function.
+WinFsp (Windows File System Proxy) is a framework that allows you to create user-mode file systems. SSHFS-Win depends on it to function.
 
-Download the latest release: WinFsp Releases
++ Download the latest release: WinFsp Releases
 
-Download the .msi installer file (e.g., winfsp-2.1.xxxx.msi).
++ Download the .msi installer file (e.g., winfsp-2.1.xxxx.msi).
 
-Run the installer and follow the on-screen instructions to complete the installation.
++ Run the installer and follow the on-screen instructions to complete the installation.
 
 ## Step 2: Install SSHFS-Win
 ### SSHFS-Win is the program that provides the SSH File System connectivity.
 
-Download the latest release: SSHFS-Win Releases
++ Download the latest release: SSHFS-Win Releases
 
-Download the .msi installer file (e.g., sshfs-win-v3.5.xxxx.msi).
++ Download the .msi installer file (e.g., sshfs-win-v3.5.xxxx.msi).
 
-Run the installer and complete the installation.
++ Run the installer and complete the installation.
 
 ## Step 3: Mapping Your Network Drive
 ### Once the installation is complete, you can map your remote directories. You can do this through the Windows Explorer interface or the Command Prompt.
@@ -28,17 +28,17 @@ Run the installer and complete the installation.
 Option 1: Using Windows Explorer (GUI)
 This is the most user-friendly method.
 
-Open File Explorer.
++ Open File Explorer.
 
-Right-click on "This PC" in the left-hand navigation pane.
++ Right-click on "This PC" in the left-hand navigation pane.
 
-Select "Map network drive..." from the context menu.
++ Select "Map network drive..." from the context menu.
 
-In the "Map Network Drive" window, choose an available Drive letter (e.g., X:, Y:, Z:).
++ In the "Map Network Drive" window, choose an available Drive letter (e.g., X:, Y:, Z:).
 
-In the Folder field, enter the path to your server using the special UNC syntax. See the examples below.
++ In the Folder field, enter the path to your server using the special UNC syntax. See the examples below.
 
-Click Finish. You will be prompted to enter the username and password for the remote server.
++ Click Finish. You will be prompted to enter the username and password for the remote server.
 
 Windows Explorer Examples:
 Example A: Mapping the server's root directory (/)
