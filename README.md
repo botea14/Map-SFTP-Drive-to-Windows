@@ -45,31 +45,31 @@ This is the most user-friendly method.
 
 To map the entire file system of a server, use the sshfs.r prefix.
 
-Server: linux.intra
+Server: > linux.intra
 
-Username: your_user
+Username: > your_user
 
-Path: \\sshfs.r\your_user@linux.intra
+Path: > \\sshfs.r\your_user@linux.intra
 
 ### Example B: Mapping a specific folder (e.g., /mnt/storage)
 
 To map a specific folder deep in the file system, also use the sshfs.r prefix and add the path at the end.
 
-Server: game.inewb.ro
+Server: > linux.intra
 
-Username: root
+Username: > root
 
-Path: \\sshfs.r\root@game.inewb.ro\mnt\storage
+Path: > \\sshfs.r\root@linux.intra\mnt\storage
 
 Example C: Mapping a user's home directory (~)
 
 To map only the home directory of the remote user, use the sshfs prefix (without the .r).
 
-Server: game.inewb.ro
+Server: linux.intra
 
 Username: root
 
-Path: \\sshfs\root@game.inewb.ro
+Path: \\sshfs\root@linux.intra
 
 ## Option 2: Using the Command Line (net use)
 ### This method is faster for users comfortable with the command line.
@@ -87,11 +87,11 @@ Example A: Mapping the server's root directory (/)
 
 Example B: Mapping a specific folder (e.g., /home)
 
-```net use Y: \\sshfs.r\root@game.inewb.ro\home```
+```net use Y: \\sshfs.r\root@linux.intra\home```
 
 Example C: Mapping another specific folder (e.g., /mnt/storage)
 
-```net use X: \\sshfs.r\root@game.inewb.ro\mnt\storage```
+```net use X: \\sshfs.r\root@linux.intra\mnt\storage```
 
 ## How to Unmap a Drive
 ### To disconnect a drive, you can either:
