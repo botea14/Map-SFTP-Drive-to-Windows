@@ -25,7 +25,7 @@ WinFsp (Windows File System Proxy) is a framework that allows you to create user
 ## Step 3: Mapping Your Network Drive
 ### Once the installation is complete, you can map your remote directories. You can do this through the Windows Explorer interface or the Command Prompt.
 
-Option 1: Using Windows Explorer (GUI)
+### Option 1: Using Windows Explorer (GUI)
 This is the most user-friendly method.
 
 + Open File Explorer.
@@ -40,8 +40,8 @@ This is the most user-friendly method.
 
 + Click Finish. You will be prompted to enter the username and password for the remote server.
 
-Windows Explorer Examples:
-Example A: Mapping the server's root directory (/)
+## Windows Explorer Examples:
+### Example A: Mapping the server's root directory (/)
 
 To map the entire file system of a server, use the sshfs.r prefix.
 
@@ -51,7 +51,7 @@ Username: your_user
 
 Path: \\sshfs.r\your_user@linux.intra
 
-Example B: Mapping a specific folder (e.g., /mnt/storage)
+### Example B: Mapping a specific folder (e.g., /mnt/storage)
 
 To map a specific folder deep in the file system, also use the sshfs.r prefix and add the path at the end.
 
@@ -71,33 +71,33 @@ Username: root
 
 Path: \\sshfs\root@game.inewb.ro
 
-Option 2: Using the Command Line (net use)
-This method is faster for users comfortable with the command line.
+## Option 2: Using the Command Line (net use)
+### This method is faster for users comfortable with the command line.
 
-Open Command Prompt or PowerShell.
++ Open Command Prompt or PowerShell.
 
-Use the net use command followed by a drive letter and the server path.
++ Use the net use command followed by a drive letter and the server path.
 
-You will be prompted to enter the password for the remote user.
++ You will be prompted to enter the password for the remote user.
 
 Command Line Examples:
 Example A: Mapping the server's root directory (/)
 
-net use Z: \\sshfs.r\your_user@linux.intra
+```net use Z: \\sshfs.r\your_user@linux.intra```
 
 Example B: Mapping a specific folder (e.g., /home)
 
-net use Y: \\sshfs.r\root@game.inewb.ro\home
+```net use Y: \\sshfs.r\root@game.inewb.ro\home```
 
 Example C: Mapping another specific folder (e.g., /mnt/storage)
 
-net use X: \\sshfs.r\root@game.inewb.ro\mnt\storage
+```net use X: \\sshfs.r\root@game.inewb.ro\mnt\storage```
 
-How to Unmap a Drive
-To disconnect a drive, you can either:
+## How to Unmap a Drive
+### To disconnect a drive, you can either:
 
-GUI: Right-click the network drive in "This PC" and select "Disconnect".
+> GUI: Right-click the network drive in "This PC" and select "Disconnect".
 
-Command Line: Use the net use command with the /delete switch.
+### Command Line: Use the net use command with the /delete switch.
 
-net use Z: /delete
+```net use Z: /delete```
