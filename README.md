@@ -47,9 +47,9 @@ To map the entire file system of a server, use the sshfs.r prefix.
 
 Server: ```linux.intra```
 
-Username: ```your_user```
+Username: ```root```
 
-Path: ```\\sshfs.r\your_user@linux.intra```
+Path: ```\\sshfs.r\root@linux.intra```
 
 ### Example B: Mapping a specific folder (e.g., /mnt/storage)
 
@@ -83,7 +83,7 @@ Path: ```\\sshfs\root@linux.intra```
 Command Line Examples:
 Example A: Mapping the server's root directory (/)
 
-```net use Z: \\sshfs.r\your_user@linux.intra```
+```net use Z: \\sshfs.r\root@linux.intra```
 
 Example B: Mapping a specific folder (e.g., /home)
 
