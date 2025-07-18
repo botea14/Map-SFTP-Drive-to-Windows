@@ -1,103 +1,90 @@
-# How to Map SFTP/SSH Servers as Network Drives in Windows
-### This tutorial provides a step-by-step guide on how to use SSHFS-Win to connect to SFTP/SSH servers and map their directories as network drives on your Windows computer. This allows you to browse and manage remote files directly from Windows Explorer, just like a local drive.
+# How to Map SFTP/SSH Servers as Network Drives in Windows 🗺️
 
-## Prerequisites: Installation
-### Before you can map any drives, you need to install two essential pieces of software.
+This tutorial provides a step-by-step guide on how to use **SSHFS-Win** to connect to SFTP/SSH servers and map their directories as network drives on your Windows computer. This allows you to browse and manage remote files directly from **Windows Explorer**, just like a local drive.
 
-## Step 1: Install WinFsp
-WinFsp (Windows File System Proxy) is a framework that allows you to create user-mode file systems. SSHFS-Win depends on it to function.
+---
 
-+ Download the latest release: [WinFsp Releases](https://github.com/winfsp/winfsp/releases)
+## 💾 Prerequisites: Installation
+Before you can map any drives, you need to install two essential pieces of software.
 
-+ Download the .msi installer file (e.g., winfsp-2.1.xxxx.msi).
+### Step 1: Install WinFsp
+> [!NOTE]
+> **WinFsp** (Windows File System Proxy) is a framework that allows you to create user-mode file systems. SSHFS-Win depends on it to function.
 
-+ Run the installer and follow the on-screen instructions to complete the installation.
+* **Download the latest release:** [**WinFsp Releases**](https://github.com/winfsp/winfsp/releases)
+* Download the `.msi` installer file (e.g., `winfsp-2.1.xxxx.msi`).
+* Run the installer and follow the on-screen instructions to complete the installation.
 
-## Step 2: Install SSHFS-Win
-### SSHFS-Win is the program that provides the SSH File System connectivity.
+### Step 2: Install SSHFS-Win
+> [!NOTE]
+> **SSHFS-Win** is the program that provides the SSH File System connectivity.
 
-+ Download the latest release: [SSHFS-Win Releases](https://github.com/winfsp/sshfs-win/releases)
+* **Download the latest release:** [**SSHFS-Win Releases**](https://github.com/winfsp/sshfs-win/releases)
+* Download the `.msi` installer file (e.g., `sshfs-win-v3.5.xxxx.msi`).
+* Run the installer and complete the installation.
 
-+ Download the .msi installer file (e.g., sshfs-win-v3.5.xxxx.msi).
+---
 
-+ Run the installer and complete the installation.
-
-## Step 3: Mapping Your Network Drive
-### Once the installation is complete, you can map your remote directories. You can do this through the Windows Explorer interface or the Command Prompt.
+## 🔗 Step 3: Mapping Your Network Drive
+Once the installation is complete, you can map your remote directories. You can do this through the Windows Explorer interface or the Command Prompt.
 
 ### Option 1: Using Windows Explorer (GUI)
 This is the most user-friendly method.
 
-+ Open File Explorer.
+1. Open **File Explorer**.
+2. Right-click on **"This PC"** in the left-hand navigation pane.
+3. Select **"Map network drive..."** from the context menu.
+4. In the "Map Network Drive" window, choose an available **Drive letter** (e.g., `X:`, `Y:`, `Z:`).
+5. In the `Folder` field, enter the path to your server using the special UNC syntax. See the examples below.
+6. Click **Finish**. You will be prompted to enter the username and password for the remote server.
 
-+ Right-click on "This PC" in the left-hand navigation pane.
+#### **Windows Explorer Examples**
 
-+ Select "Map network drive..." from the context menu.
+| **Goal** | **Server** | **Username** | **Path to Enter** |
+| :--- | :--- | :--- | :--- |
+| **Map Root (`/`)** | `linux.intra` | `root` | `\\sshfs.r\root@linux.intra` |
+| **Map Specific Folder** | `linux.intra` | `root` | `\\sshfs.r\root@linux.intra\mnt\storage` |
+| **Map Home Dir (`~`)** | `linux.intra` | `root` | `\\sshfs\root@linux.intra` |
 
-+ In the "Map Network Drive" window, choose an available Drive letter (e.g., X:, Y:, Z:).
+> [!TIP]
+> * Use `\\sshfs.r\` to start from the server's **root** directory (`/`).
+> * Use `\\sshfs\` to start from the user's **home** directory (`~`).
 
-+ In the Folder field, enter the path to your server using the special UNC syntax. See the examples below.
+### Option 2: Using the Command Line (`net use`)
+This method is faster for users comfortable with the command line.
 
-+ Click Finish. You will be prompted to enter the username and password for the remote server.
+1. Open **Command Prompt** or **PowerShell**.
+2. Use the `net use` command followed by a drive letter and the server path.
+3. You will be prompted to enter the password for the remote user.
 
-## Windows Explorer Examples:
-### Example A: Mapping the server's root directory (/)
+#### **Command Line Examples**
 
-To map the entire file system of a server, use the sshfs.r prefix.
+**Example A: Mapping the server's root directory (`/`)**
+```cmd
+net use Z: \\sshfs.r\root@linux.intra
+```
 
-Server: ```linux.intra```
+**Example B: Mapping a specific folder (e.g., `/home`)**
+```cmd
+net use Y: \\sshfs.r\root@linux.intra\home
+```
 
-Username: ```root```
+**Example C: Mapping another specific folder (e.g., `/mnt/storage`)**
+```cmd
+net use X: \\sshfs.r\root@linux.intra\mnt\storage
+```
 
-Path: ```\\sshfs.r\root@linux.intra```
+---
 
-### Example B: Mapping a specific folder (e.g., /mnt/storage)
+## 🗑️ How to Unmap a Drive
+To disconnect a drive, you can either:
 
-To map a specific folder deep in the file system, also use the sshfs.r prefix and add the path at the end.
+* **GUI:** Right-click the network drive in **"This PC"** and select **"Disconnect"**.
 
-Server: ```linux.intra```
+* **Command Line:** Use the `net use` command with the `/delete` switch.
+    > [!WARNING]
+    > This action is immediate and will disconnect the drive.
 
-Username: ```root```
-
-Path: ```\\sshfs.r\root@linux.intra\mnt\storage```
-
-### Example C: Mapping a user's home directory (~)
-
-To map only the home directory of the remote user, use the sshfs prefix (without the .r).
-
-Server: ```linux.intra```
-
-Username: ```root```
-
-Path: ```\\sshfs\root@linux.intra```
-
-## Option 2: Using the Command Line (net use)
-### This method is faster for users comfortable with the command line.
-
-+ Open Command Prompt or PowerShell.
-
-+ Use the net use command followed by a drive letter and the server path.
-
-+ You will be prompted to enter the password for the remote user.
-
-Command Line Examples:
-Example A: Mapping the server's root directory (/)
-
-```net use Z: \\sshfs.r\root@linux.intra```
-
-Example B: Mapping a specific folder (e.g., /home)
-
-```net use Y: \\sshfs.r\root@linux.intra\home```
-
-Example C: Mapping another specific folder (e.g., /mnt/storage)
-
-```net use X: \\sshfs.r\root@linux.intra\mnt\storage```
-
-## How to Unmap a Drive
-### To disconnect a drive, you can either:
-
-> GUI: Right-click the network drive in "This PC" and select "Disconnect".
-
-### Command Line: Use the net use command with the /delete switch.
-
-```net use Z: /delete```
+    ```cmd
+    net use Z: /delete
+    
