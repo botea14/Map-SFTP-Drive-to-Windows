@@ -7,7 +7,7 @@
 ## Step 1: Install WinFsp
 WinFsp (Windows File System Proxy) is a framework that allows you to create user-mode file systems. SSHFS-Win depends on it to function.
 
-+ Download the latest release: WinFsp Releases
++ Download the latest release: [WinFsp Releases](https://github.com/winfsp/winfsp/releases)
 
 + Download the .msi installer file (e.g., winfsp-2.1.xxxx.msi).
 
@@ -16,7 +16,7 @@ WinFsp (Windows File System Proxy) is a framework that allows you to create user
 ## Step 2: Install SSHFS-Win
 ### SSHFS-Win is the program that provides the SSH File System connectivity.
 
-+ Download the latest release: SSHFS-Win Releases
++ Download the latest release: [SSHFS-Win Releases](https://github.com/winfsp/sshfs-win/releases)
 
 + Download the .msi installer file (e.g., sshfs-win-v3.5.xxxx.msi).
 
@@ -61,7 +61,7 @@ Username: ```root```
 
 Path: ```\\sshfs.r\root@linux.intra\mnt\storage```
 
-Example C: Mapping a user's home directory (~)
+### Example C: Mapping a user's home directory (~)
 
 To map only the home directory of the remote user, use the sshfs prefix (without the .r).
 
