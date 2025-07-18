@@ -1,11 +1,11 @@
 # How to Map SFTP/SSH Servers as Network Drives in Windows
 ### This tutorial provides a step-by-step guide on how to use SSHFS-Win to connect to SFTP/SSH servers and map their directories as network drives on your Windows computer. This allows you to browse and manage remote files directly from Windows Explorer, just like a local drive.
 
-Prerequisites: Installation
-Before you can map any drives, you need to install two essential pieces of software.
+## Prerequisites: Installation
+### Before you can map any drives, you need to install two essential pieces of software.
 
-Step 1: Install WinFsp
-WinFsp (Windows File System Proxy) is a framework that allows you to create user-mode file systems. SSHFS-Win depends on it to function.
+## Step 1: Install WinFsp
+### WinFsp (Windows File System Proxy) is a framework that allows you to create user-mode file systems. SSHFS-Win depends on it to function.
 
 Download the latest release: WinFsp Releases
 
@@ -13,8 +13,8 @@ Download the .msi installer file (e.g., winfsp-2.1.xxxx.msi).
 
 Run the installer and follow the on-screen instructions to complete the installation.
 
-Step 2: Install SSHFS-Win
-SSHFS-Win is the program that provides the SSH File System connectivity.
+## Step 2: Install SSHFS-Win
+### SSHFS-Win is the program that provides the SSH File System connectivity.
 
 Download the latest release: SSHFS-Win Releases
 
@@ -22,8 +22,8 @@ Download the .msi installer file (e.g., sshfs-win-v3.5.xxxx.msi).
 
 Run the installer and complete the installation.
 
-Step 3: Mapping Your Network Drive
-Once the installation is complete, you can map your remote directories. You can do this through the Windows Explorer interface or the Command Prompt.
+## Step 3: Mapping Your Network Drive
+### Once the installation is complete, you can map your remote directories. You can do this through the Windows Explorer interface or the Command Prompt.
 
 Option 1: Using Windows Explorer (GUI)
 This is the most user-friendly method.
