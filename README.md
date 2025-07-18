@@ -1,5 +1,5 @@
-How to Map SFTP/SSH Servers as Network Drives in Windows
-This tutorial provides a step-by-step guide on how to use SSHFS-Win to connect to SFTP/SSH servers and map their directories as network drives on your Windows computer. This allows you to browse and manage remote files directly from Windows Explorer, just like a local drive.
+# How to Map SFTP/SSH Servers as Network Drives in Windows
+### This tutorial provides a step-by-step guide on how to use SSHFS-Win to connect to SFTP/SSH servers and map their directories as network drives on your Windows computer. This allows you to browse and manage remote files directly from Windows Explorer, just like a local drive.
 
 Prerequisites: Installation
 Before you can map any drives, you need to install two essential pieces of software.
